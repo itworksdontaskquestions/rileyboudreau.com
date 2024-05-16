@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('bg.jpg') center/cover no-repeat; /* replace 'your-background-image.jpg' with your image file */
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+    }
+
+    #moving-text {
+      font-size: 2em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <title>TEST</title>
+</head>
+<body>
+  <div class="container" onmousemove="moveText(event)">
+    <div class="background-image"></div>
+    <div class="content">
+      <h1 id="moving-text">Hello, World!</h1>
+    </div>
+  </div>
+  <script>
+    function moveText(e) {
+      const movingText = document.getElementById('moving-text');
+      const container = document.querySelector('.container');
+      const { clientX, clientY } = e;
+      const { offsetWidth, offsetHeight } = container;
+
+      const xPercentage = (clientX / offsetWidth - 0.5) * 20;
+      const yPercentage = (clientY / offsetHeight - 0.5) * 20;
+
+      movingText.style.transform = `translate(-50%, -50%) translate(${xPercentage}px, ${yPercentage}px)`;
+    }
+  </script>
+</body>
+</html>

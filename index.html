@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Riley Boudreau</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content {
+            text-align: center;
+            position: relative;
+            color: rgb(226, 218, 218);
+            font-family: Sans-serif, Verdana;
+        }
+
+        .box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        body {
+            background-image: url(https://i.imgur.com/t9ybmGD.jpeg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #111111;
+            overflow: hidden; /* Prevent scroll bars */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="content" id="content">
+            <h1>Am I the Riley you're looking for?</h1>
+            <p>contact@rileyboudreau.com</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("mousemove", function (event) {
+            const content = document.getElementById("content");
+            const xOffset = (event.clientX / window.innerWidth - 0.5) * 20;
+            const yOffset = (event.clientY / window.innerHeight - 0.5) * 20;
+
+            content.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        });
+    </script>
+</body>
+</html>
